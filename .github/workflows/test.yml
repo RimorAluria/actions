@@ -1,0 +1,17 @@
+name: Build Android APK
+
+on:
+  push:
+    branches:
+      - main
+  workflow_call:
+
+jobs:
+  build:
+    name: Test Env Secrets
+    runs-on: ubuntu-latest
+    environment: test
+
+    steps:
+      - name: Test Key
+        run: echo "$(pwd):[${{ secrets.Key }}]"
